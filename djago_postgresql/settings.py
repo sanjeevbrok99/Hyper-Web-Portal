@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'django_rest_passwordreset',
+    'rest_framework_simplejwt',
+
 
 ]
 
@@ -73,7 +75,10 @@ TEMPLATES = [
 REST_FRAMEWORK = {
     'FORM_METHOD_OVERRIDE': None,
     'FORM_CONTENT_OVERRIDE': None,
-    'FORM_CONTENTTYPE_OVERRIDE': None
+    'FORM_CONTENTTYPE_OVERRIDE': None,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 WSGI_APPLICATION = 'djago_postgresql.wsgi.application'
 
@@ -112,7 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 

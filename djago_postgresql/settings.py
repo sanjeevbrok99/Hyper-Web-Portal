@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_rest_passwordreset',
     'rest_framework_simplejwt',
+        'cloudinary'
 
 
 ]
@@ -148,3 +151,14 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mishragpta@gmail.com'
 EMAIL_HOST_PASSWORD = 'justsanju99'
+
+# settings.py
+
+# CLOUDINARY_URL='cloudinary://558248916389393:barEvHxvFYY6PbfRfCk9k5fmDZE@dg6uiwktt'
+# # import cloudinary
+          
+cloudinary.config( 
+  cloud_name = "dg6uiwktt", 
+  api_key = "558248916389393", 
+  api_secret = "barEvHxvFYY6PbfRfCk9k5fmDZE" 
+)

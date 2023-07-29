@@ -19,3 +19,14 @@ class UserLoginSerializer(serializers.Serializer):
     # Define your serializer fields here to handle user login data
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)
+from rest_framework import serializers
+
+# class FileUploadSerializer(serializers.Serializer):
+#     file = serializers.FileField()
+    
+# serializers.py
+
+
+class FileUploadSerializer(serializers.Serializer):
+    file = serializers.ImageField()
+

@@ -1,5 +1,6 @@
 # users/models.py
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class User(models.Model):
     username = models.CharField(max_length=50, unique=True)
@@ -11,3 +12,5 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
+class UploadedFile(models.Model):
+    file = CloudinaryField('image')
